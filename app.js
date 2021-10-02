@@ -1,15 +1,7 @@
 import fetch from 'node-fetch';
 import fs from 'fs';
 
-const API_KEY = '';
-
-const domainList = [
-	'example.tld',
-	'example.com',
-	'example.net',
-	'example.fr',
-	'example.org',
-];
+import { API_KEY, domainList } from './config.js';
 
 const output = {};
 

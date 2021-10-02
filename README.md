@@ -4,10 +4,10 @@ Check domain availability using the api available at whoisxmlapi.com
 
 ## How to use it ?
 
-- Fill **domainList** and **API_KEY** variable in **app.js** file.
-- `node app.js` fetches data from the API
-- `node displayData.js` display availability data
-- `npm start` to do both
+- Fill **domainList** and **API_KEY** variable in **config.js** following **config.default.js** model file.
+- Execute `node app.js` fetches data from the API
+- Execute `node displayData.js` display availability data
+- Execute `npm start` to do both
 
 ## Docs
 
