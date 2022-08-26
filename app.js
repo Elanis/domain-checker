@@ -7,7 +7,7 @@ const output = {};
 
 async function getWhoisData(domainName) {
 	try {
-		const res = await fetch(`https://www.whoisxmlapi.com/whoisserver/WhoisService?apiKey=${API_KEY}&domainName=${domainName}&outputFormat=json&da=2`);
+		const res = await fetch(`https://api.ip2whois.com/v2?key=${API_KEY}&domain=${domainName}&format=json`);
 
 		//console.log('res', res);
 

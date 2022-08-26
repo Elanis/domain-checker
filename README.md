@@ -1,6 +1,6 @@
 # Domain checker
 
-Check domain availability using the api available at whoisxmlapi.com
+Check domain availability using the api available at ip2whois.com
 
 ## How to use it ?
 
@@ -11,4 +11,4 @@ Check domain availability using the api available at whoisxmlapi.com
 
 ## Docs
 
-The API this tool is using is documented at https://whois.whoisxmlapi.com/documentation/making-requests
+The API this tool is using is documented at https://www.ip2whois.com/developers-api

@@ -3,18 +3,22 @@ import fs from 'fs';
 const data = JSON.parse(fs.readFileSync('./domainData.json', 'utf-8'));
 
 const list = Object.values(data).sort((a, b) => {
-	if(a.WhoisRecord.domainAvailability === 'AVAILABLE' && b.WhoisRecord.domainAvailability !== 'AVAILABLE') {
+	if(!a.expire_date && !b.expire_date) {
+		return 0;
+	}
+
+	if(!a.expire_date) {
 		return -1;
 	}
 
-	if(b.WhoisRecord.domainAvailability === 'AVAILABLE' && a.WhoisRecord.domainAvailability !== 'AVAILABLE') {
+	if(!b.expire_date) {
 		return 1;
 	}
 
-	return (new Date(a.WhoisRecord.registryData.expiresDate)).getTime() - (new Date(b.WhoisRecord.registryData.expiresDate)).getTime();
+	return (new Date(a.expire_date)).getTime() - (new Date(b.expire_date)).getTime();
 });
 
-console.log('Domain name\t\tStatus\t\tExpiry Date');
+console.log('Domain name\t\tExpiry Date');
 
 for(const whoisData of list) {
 	let domainDisplay = whoisData.domainName;
@@ -29,7 +33,7 @@ for(const whoisData of list) {
 	if(whoisData.error && whoisData.error.message) {
 		console.log(domainDisplay + whoisData.error.message);
 	} else {
-		console.log(domainDisplay + whoisData.WhoisRecord.domainAvailability + '\t' + (whoisData.WhoisRecord.registryData.expiresDate || ''));
+		console.log(domainDisplay + whoisData.expire_date);
 	}
 }
 
