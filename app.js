@@ -1,4 +1,3 @@
-import fetch from 'node-fetch';
 import fs from 'fs';
 
 import { API_KEY, domainList } from './config.js';
